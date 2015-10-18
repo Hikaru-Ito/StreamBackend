@@ -1,0 +1,40 @@
+{
+  "method": "inverted_index",
+  "converter": {
+    "string_filter_types": {
+      "detag": { "method": "regexp", "pattern": "<[^>]*>", "replace": "" }
+    },
+    "string_filter_rules": [
+      {
+        "key": "title",
+        "type": "detag",
+        "suffix": "-detagged"
+      },
+      {
+        "key": "content",
+        "type": "detag",
+        "suffix": "-detagged"
+      }
+    ],
+    "num_filter_types": {},
+    "num_filter_rules": [],
+    "string_types": {
+      "mecab": {
+        "method": "dynamic",
+        "function": "create",
+        "path": "libmecab_splitter.dylib",
+        "arg": "-d /usr/local/Cellar/mecab/0.996/lib/mecab/dic/mecab-ipadic-neologd"
+      },
+      "bigram": {
+        "method": "ngram", "char_num": "2"
+      }
+    },
+    "string_rules": [
+      { "key": "title", "type": "mecab", "sample_weight": "tf", "global_weight": "idf" }
+    ],
+    "num_types": {},
+    "num_rules": [
+      {"key" : "*", "type" : "num"}
+    ]
+  }
+}

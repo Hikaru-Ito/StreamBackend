@@ -1,0 +1,19 @@
+{
+  "name": "StreamDataAPI",
+  "version": "1.0.0",
+  "description": "Back-end API of Stream",
+  "main": "index.coffee",
+  "dependencies": {
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "body-parser": "^1.14.1",
+    "mysql": "^2.9.0",
+    "request": "^2.65.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hikaru",
+  "license": "ISC"
+}
